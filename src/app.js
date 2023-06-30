@@ -37,21 +37,22 @@ window.onload = function() {
   }
 
   function redCard() {
-    // let cardSuit = document.querySelectorAll(".internalIcon");
-    // cardSuit.forEach(element => {
-    //   if (element.innerHTML === "♦" || element.innerHTML === "♥") {
-    //     element.style.color = "red";
-    //   } else {
-    //     element.style.color = "";
-    //   }
-    // });
-
-    // return cardSuit;
     let cardSuit = document.querySelectorAll(".internalIcon");
-    let cardNumber = document.querySelector(".numberText");
+    let cardNumbers = document.querySelectorAll(".numberText");
+
+    let suitIsRed =
+      cardSuit[0].innerHTML === "♦" || cardSuit[0].innerHTML === "♥";
 
     cardSuit.forEach(element => {
-      if (element.innerHTML === "♦" || element.innerHTML === "♥") {
+      if (suitIsRed) {
+        element.style.color = "red";
+      } else {
+        element.style.color = "";
+      }
+    });
+
+    cardNumbers.forEach(element => {
+      if (suitIsRed) {
         element.style.color = "red";
       } else {
         element.style.color = "";
@@ -94,7 +95,7 @@ window.onload = function() {
   }
 
   let dealButton = document.querySelector("#button");
-  dealButton.textContent = "Deal";
+  dealButton.textContent = "DEAL";
 
   dealButton.addEventListener("click", dealCard);
 };
